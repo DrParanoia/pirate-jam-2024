@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://br635glhu42qj"]
+
+[ext_resource type="Script" path="res://screens/board/board.gd" id="1_qx2x1"]
+[ext_resource type="Texture2D" uid="uid://07glmetjwwer" path="res://assets/img/homun_bkgd1.png" id="2_j3mmx"]
+[ext_resource type="AudioStream" uid="uid://b3tqbtfgw1sln" path="res://assets/audio/music/Piano 4.mp3" id="4_223eq"]
+[ext_resource type="PackedScene" uid="uid://b4x7iqmy7f7it" path="res://objects/card.tscn" id="4_imu57"]
+
+[node name="Board" type="Node2D"]
+script = ExtResource("1_qx2x1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1280, 720)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1281, 724)
+texture = ExtResource("2_j3mmx")
+
+[node name="Node2D" parent="." instance=ExtResource("4_imu57")]
+position = Vector2(1291, 730)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_223eq")
+volume_db = -20.0
+autoplay = true
+
+[connection signal="drag_end" from="Node2D" to="." method="_on_node_2d_drag_end"]
+[connection signal="drag_start" from="Node2D" to="." method="_on_node_2d_drag_start"]

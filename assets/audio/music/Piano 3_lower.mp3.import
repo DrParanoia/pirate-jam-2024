@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wv6yv87cvowl"
+path="res://.godot/imported/Piano 3_lower.mp3-fb7c6cbc2ef2dc203beb345989001b14.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Piano 3_lower.mp3"
+dest_files=["res://.godot/imported/Piano 3_lower.mp3-fb7c6cbc2ef2dc203beb345989001b14.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4x7iqmy7f7it"]
+
+[ext_resource type="Script" path="res://objects/card.gd" id="1_2j6qg"]
+[ext_resource type="Texture2D" uid="uid://hfxdy3kjgjs3" path="res://assets/img/card_background.png" id="1_7sw7c"]
+[ext_resource type="Texture2D" uid="uid://bqi0cv4eafdug" path="res://assets/img/card_image.png" id="2_rmiqh"]
+[ext_resource type="Script" path="res://objects/card_area.gd" id="4_vjxgf"]
+[ext_resource type="AudioStream" uid="uid://dkeke5tijt22b" path="res://assets/audio/sfx/card_1.mp3" id="5_suxtn"]
+[ext_resource type="AudioStream" uid="uid://et1wsnoe2ccj" path="res://assets/audio/sfx/card_2.mp3" id="6_lsx23"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkkth"]
+size = Vector2(228, 275)
+
+[node name="Card" type="Node2D"]
+script = ExtResource("1_2j6qg")
+
+[node name="CardBackground" type="Sprite2D" parent="."]
+texture = ExtResource("1_7sw7c")
+
+[node name="CardImage" type="Sprite2D" parent="."]
+texture = ExtResource("2_rmiqh")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("4_vjxgf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_tkkth")
+
+[node name="PickUpAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_suxtn")
+volume_db = -10.0
+
+[node name="PutDownAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_lsx23")
+volume_db = -10.0
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

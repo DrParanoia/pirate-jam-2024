@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://deoov6pbqpqab"]
+
+[ext_resource type="Script" path="res://screens/main_menu/main_menu.gd" id="1_ld1s8"]
+[ext_resource type="AudioStream" uid="uid://wv6yv87cvowl" path="res://assets/audio/music/Piano 3_lower.mp3" id="2_8bg2s"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_ld1s8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1280, 720)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_constants/separation = 85
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "Start"
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "Settings"
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "Credits
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8bg2s")
+volume_db = -20.613
+autoplay = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
